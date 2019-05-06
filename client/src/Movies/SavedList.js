@@ -6,18 +6,18 @@ export default class SavedList extends Component {
     return (
       <div className="saved-list">
         <h3>Saved Movies:</h3>
-        {this.props.list.map(movie => (
-          <NavLink
-            key={movie.id}
-            to={`/movies/${movie.id}`}
-            className="saved-list__item"
-            activeClassName="saved-list__item--active"
-          >
-            <span key={movie.id} className="saved-movie">
-              {movie.title}
-            </span>
-          </NavLink>
-        ))}
+        <div className="saved-list__inner">
+          {this.props.list.map(movie => (
+            <NavLink
+              key={movie.id}
+              to={`/movies/${movie.id}`}
+              className="saved-list__item"
+              activeClassName="saved-list__item--active"
+            >
+              <img src={movie.imageUrl} alt={movie.title} />
+            </NavLink>
+          ))}
+        </div>
         <Link to="/">
           <div className="home-button">Home</div>
         </Link>

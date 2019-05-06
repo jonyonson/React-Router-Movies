@@ -40,6 +40,15 @@ export default class Movie extends Component {
   };
 
   render() {
+    // const savedList = this.props.savedList;
+    // const id = this.state.movie.id;
+    // let isSaved;
+    // if (savedList.filter(x => x.id === id).length > 0) {
+    //   isSaved = true;
+    // } else {
+    //   isSaved = false;
+    // }
+
     if (!this.state.movie) {
       return <div>Loading movie information...</div>;
     }
@@ -47,6 +56,7 @@ export default class Movie extends Component {
     return (
       <div className="save-wrapper">
         <MovieCard movie={this.state.movie} />
+
         <div onClick={this.saveMovie} className="save-button">
           Save
         </div>
