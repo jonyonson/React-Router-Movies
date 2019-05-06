@@ -70,3 +70,16 @@ body {
   padding: 5px 10px;
   background-color: lightskyblue;
 }
+
+
+
+.saved-list__item--active {
+  text-decoration: none;
+  color: black;
+}
+
+
+.movie-list a {
+  color: inherit;
+  text-decoration: none;
+}
