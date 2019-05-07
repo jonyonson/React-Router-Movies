@@ -48,7 +48,7 @@ export default class Movie extends Component {
       <div className="save-wrapper">
         <MovieCard movie={this.state.movie} />
         <div onClick={this.saveMovie} className="save-button">
-          {!isSaved ? 'Save' : 'Remove'}
+          {isSaved ? 'Remove' : 'Save'}
         </div>
       </div>
     );
