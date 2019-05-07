@@ -11,7 +11,6 @@ export default class Movie extends Component {
   }
 
   componentDidMount() {
-    // change this line to grab the id passed on the URL
     const id = this.props.match.params.id;
     this.fetchMovie(id);
   }
@@ -26,7 +25,7 @@ export default class Movie extends Component {
         console.error(error);
       });
   };
-  // Uncomment this code when you're ready for the stretch problems
+
   componentWillReceiveProps(newProps) {
     if (this.props.match.params.id !== newProps.match.params.id) {
       this.fetchMovie(newProps.match.params.id);
@@ -34,31 +33,22 @@ export default class Movie extends Component {
   }
 
   saveMovie = () => {
-    // console.log('save movie');
     const addToSavedList = this.props.addToSavedList;
     addToSavedList(this.state.movie);
   };
 
   render() {
-    // const savedList = this.props.savedList;
-    // const id = this.state.movie.id;
-    // let isSaved;
-    // if (savedList.filter(x => x.id === id).length > 0) {
-    //   isSaved = true;
-    // } else {
-    //   isSaved = false;
-    // }
-
     if (!this.state.movie) {
       return <div>Loading movie information...</div>;
     }
-
+    const savedList = this.props.savedList;
+    const id = this.state.movie.id;
+    let isSaved = savedList.filter(x => x.id === id).length > 0 ? true : false;
     return (
       <div className="save-wrapper">
         <MovieCard movie={this.state.movie} />
-
         <div onClick={this.saveMovie} className="save-button">
-          Save
+          {!isSaved ? 'Save' : 'Remove'}
         </div>
       </div>
     );
