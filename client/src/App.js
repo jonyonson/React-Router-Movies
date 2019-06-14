@@ -12,14 +12,6 @@ export default class App extends Component {
     };
   }
 
-  sumOfDigits = num => {
-    return num
-      .toString()
-      .split('')
-      .map(x => Number(x))
-      .reduce((acc, cv) => acc + cv);
-  };
-
   addToSavedList = movie => {
     const savedList = this.state.savedList;
     if (savedList.filter(x => x.id === movie.id).length > 0) {
